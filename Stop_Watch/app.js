@@ -1,3 +1,4 @@
+//variables
 const stopWatch = document.querySelector(".stopwatch");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
@@ -9,7 +10,7 @@ let min = 00;
 let hrs = 00;
 
 let timerId = null;
-
+//start function
 startBtn.addEventListener("click", () => {
     if (timerId !== null) {
         clearInterval(timerId);
@@ -19,11 +20,13 @@ startBtn.addEventListener("click", () => {
 
 
 })
+//stop function
 stopBtn.addEventListener("click", () => {
     clearInterval(timerId)
 
 
 })
+//reset function
 resetBtn.addEventListener("click", () => {
     clearInterval(timerId);
     stopWatch.innerHTML = `00 : 00 : 00 : 00`;
