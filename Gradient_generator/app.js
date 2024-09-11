@@ -3,7 +3,7 @@ const btn2 = document.getElementById("btn2");
 let rgb1 = '#444';
 let rgb2 = '#333';
 let str = "1234567890abcdef";
-
+//gradient 1
 const getGradientColor = () => {
     rgb1 = '#';
     for (let i = 0; i < 6; i++) {
@@ -16,6 +16,7 @@ const getGradientColor = () => {
     copyCode.innerHTML = `background:linear-gradient(135deg,${rgb1} ${rgb2});`
 
 }
+//gradient 2
 const getGradientColor2 = () => {
     rgb2 = '#';
     for (let i = 0; i < 6; i++) {
@@ -36,6 +37,7 @@ btn2.addEventListener(
     "click",
     getGradientColor2
 )
+//copy functionality
 const copyCode = document.querySelector(".copy-code p");
 document.querySelector(".copy-btn").addEventListener("click", () => {
     navigator.clipboard.writeText(copyCode.innerText);
