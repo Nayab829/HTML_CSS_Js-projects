@@ -75,3 +75,8 @@ textarea {
     top: 30px;
     right: 30px;
 }
+@media  (max-width:700px) {
+    .note{
+        flex-basis: 100%;
+    }
+}
