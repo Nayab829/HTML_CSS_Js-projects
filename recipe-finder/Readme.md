@@ -37,7 +37,9 @@ A clean and user-friendly web application built with **HTML**, **CSS**, and **Ja
 - **API** – [add later]
 
 ---
-
+##⌨ Wireframe
+Here is a basic layout sketch of the app interface
+- ##[Wireframe](./wireframes/recipe-finder-wireframe.jpg)
 
 🙋‍♀️ Author
 Gul-e-Nayab
