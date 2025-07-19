@@ -41,5 +41,5 @@ btn2.addEventListener(
 const copyCode = document.querySelector(".copy-code p");
 document.querySelector(".copy-btn").addEventListener("click", () => {
     navigator.clipboard.writeText(copyCode.innerText);
-    document.querySelector(".copy-btn").title = "copied"
+    document.querySelector(".copy-btn").innerText = "copied"
 })
