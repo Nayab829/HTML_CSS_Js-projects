@@ -23,6 +23,7 @@ const searchRecipies = async (query) => {
                     <h3 class="name">${meal.strMeal}</h3>
             `
                 resultBox.appendChild(card)
+                input.value=""
             });
     
         } else {
