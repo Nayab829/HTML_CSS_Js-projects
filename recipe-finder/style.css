@@ -27,7 +27,11 @@ header {
     margin: auto;
     background: papayawhip;
 }
+.error{
+    padding-block: 20px;
+    text-align: center;
 
+}
 .coral {
     color: coral;
 }
@@ -67,15 +71,16 @@ header .search-box input {
 }
 
 /* ---------- Feature Section ---------- */
-.feature-section
- {
+.feature-section {
     padding-block: 50px;
     padding-inline: 30px;
 }
-.recipe-section{
+
+.recipe-section {
     padding-inline: 30px;
-    
+
 }
+
 .feature-heading,
 .recipe-heading {
     text-align: center;
@@ -96,6 +101,7 @@ header .search-box input {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: all 0.3s ease-in;
 }
+
 .feature-img img:hover {
     transform: scale(1.02);
 }
@@ -162,6 +168,7 @@ header .search-box input {
     padding-bottom: 10px;
     transition: all 0.3s ease-in;
 }
+
 .recipe-card:hover {
     transform: scale(1.02);
 }
@@ -186,6 +193,7 @@ header .search-box input {
     header {
         padding: 40px 20px;
     }
+
     header .logo {
         font-size: 35px;
     }
@@ -212,13 +220,16 @@ header .search-box input {
         flex-direction: column;
         align-items: center;
     }
-    .feature-text{
+
+    .feature-text {
         align-items: center;
     }
-    .feature-text p{
+
+    .feature-text p {
         text-align: center;
     }
-    .feature-text h2{
+
+    .feature-text h2 {
         font-size: 35px;
         font-weight: 500;
     }

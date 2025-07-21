@@ -8,36 +8,45 @@ const resultHead = document.querySelector(".recipe-section");
 const resultBox = document.querySelector(".recipe-container");
 
 const searchRecipies = async (query) => {
-    resultBox.innerHTML = "";
-    const response = await fetch(`${API_URL}${query}`);
-    const data = await response.json();
-    if (data.meals) {
-        data.meals.forEach(meal => {
-            const card = document.createElement("div");
-            card.className = "recipe-card";
-            card.innerHTML = `
-                 <div class="img">
-                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-                </div>
-                <h3 class="name">${meal.strMeal}</h3>
-        `
-            resultBox.appendChild(card)
-        });
-
-    } else {
-        resultBox.innerHTML = `<h2>No recipes found for "${query}"</h2>`;
+    try {
+        resultBox.innerHTML = "";
+        const response = await fetch(`${API_URL}${query}`);
+        const data = await response.json();
+        if (data.meals) {
+            data.meals.forEach(meal => {
+                const card = document.createElement("div");
+                card.className = "recipe-card";
+                card.innerHTML = `
+                     <div class="img">
+                        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+                    </div>
+                    <h3 class="name">${meal.strMeal}</h3>
+            `
+                resultBox.appendChild(card)
+            });
+    
+        } else {
+            resultSection.innerHTML = `<h2 class="error">No recipes found for "${query}"</h2>`;
+        }
+    } catch (error) {
+        console.error("Error loading recipes",error)
+        resultSection.innerHTML= ` <h2 class="error">Could not load featured recipe. Please try again later.</h2>`
     }
 }
 
 // Show Random Featured Recipe
 async function loadFeaturedRecipe() {
-    const res = await fetch(RANDOM_URL);
-    const data = await res.json();
-    const meal = data.meals[0];
+    try {
+        const res = await fetch(RANDOM_URL);
+        if (!res.ok) {
+            throw new Error("Error ehile fetchin API")
+        }
+        const data = await res.json();
+        const meal = data.meals[0];
 
-    const featuredContent = document.querySelector(".feature-section")
-    featuredContent.innerHTML = `
-   <h1 class="feature-heading">Featured <span class="coral">Recipe</span></h1>
+        const featuredContent = document.querySelector(".feature-section")
+        featuredContent.innerHTML = `
+        <h1 class="feature-heading">Featured <span class="coral">Recipe</span></h1>
         <section class="feature-container">
             <div class="feature-text">
                 <h2 class="">${meal.strMeal}</h2>
@@ -50,10 +59,18 @@ async function loadFeaturedRecipe() {
             <div class="feature-img">
                 <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
             </div>
+            `;
+    } catch (error) {
+        console.error("Error loading featured recipe:", error);
+
+        const featuredContent = document.querySelector(".feature-section");
+        featuredContent.innerHTML = `
+            <h2 class="error">Could not load featured recipe. Please try again later.</h2>
+        `;
+    }
 
 
-            
-  `;
+
 }
 loadFeaturedRecipe()
 
