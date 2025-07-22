@@ -27,11 +27,13 @@ header {
     margin: auto;
     background: papayawhip;
 }
-.error{
+
+.error {
     padding-block: 20px;
     text-align: center;
 
 }
+
 .coral {
     color: coral;
 }
@@ -179,6 +181,62 @@ header .search-box input {
     object-fit: cover;
 }
 
+
+/* modal css */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+
+}
+
+.modal-content {
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 10px;
+    max-height: 80vh;
+    border-radius: 5px;
+    padding-block: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    border: 0;
+    outline: none;
+    font-size: 35px;
+    rotate: 45deg;
+    background: transparent;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    box-shadow: none;
+
+    &:hover {
+        color: coral;
+    }
+}
+.modal-content h1{
+    color: coral;
+}
+.hidden {
+    display: none;
+}
+
+.modal-content span {
+    font-weight: 700;
+    display: inline-block;
+    margin-block: 10px;
+}
+
+
+
 /* ---------- Media Queries ---------- */
 
 /* Large Desktops */
@@ -187,6 +245,7 @@ header .search-box input {
         grid-template-columns: repeat(5, 1fr);
     }
 }
+
 
 /* Desktops & Laptops */
 @media screen and (max-width: 1200px) {
@@ -233,6 +292,12 @@ header .search-box input {
         font-size: 35px;
         font-weight: 500;
     }
+
+    .modal-content {
+        width: 350px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 }
 
 /* Small Tablets / Large Phones */
@@ -258,5 +323,9 @@ header .search-box input {
 
     .header .logo {
         font-size: 28px;
+    }
+
+    .modal-content {
+        width: 300px;
     }
 }
